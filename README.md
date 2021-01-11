@@ -1,7 +1,7 @@
 # bulk_MD_extractors_tool
 Basic framework for throwing a folder of files at a series of metadata extractors, and recording the result
 
-<h2> Set up <\h2>
+Set up
 
 To use this tool, you must set up any of the extractors you intend to use. 
 
