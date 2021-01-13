@@ -77,7 +77,7 @@ def stage_file(infile, outfile, verbose=True):
 
 def do_tika(f, outfile, verbose=True):
     ## evokes tika jar against given file, and saves resulting data in log folder
-    cmd = f"java -jar {path_to_tika} -x -m {f} > {outfile}"
+    cmd = f'java -jar "{path_to_tika}" -x -m {f} > "{outfile}"'
     if verbose:
         print (f"doing tika for {file_label}")
     call_subprocess(cmd)
@@ -85,7 +85,7 @@ def do_tika(f, outfile, verbose=True):
 
 def do_mediainfo(f, outfile, verbose=True): 
     ## evokes mediainfo CLI exe against given file, and saves resulting data in log folder 
-    cmd = f"{path_to_mediainfo} --Output=JSON {f} > {outfile}"
+    cmd = f'{path_to_mediainfo} --Output=JSON "{f}" > "{outfile}"'
     if verbose:
         print (f"doing media_info for {file_label}")
     call_subprocess(cmd)
@@ -93,7 +93,7 @@ def do_mediainfo(f, outfile, verbose=True):
 
 def do_exiftool(f, outfile, verbose=True): 
     ## evokes exiftool exe against given file, and saves resulting data in log folder
-    cmd = f"{path_to_exiftool} -json {f} > {outfile}"
+    cmd = f'{path_to_exiftool} -json "{f}" > "{outfile}"'
     if verbose:
         print (f"doing exiftool for {file_label}")
     call_subprocess(cmd)
@@ -103,7 +103,7 @@ def do_fits(f, outfile, verbose=True):
     starting_dir = os.getcwd()
     fits_folder, __ = path_to_fits.rsplit(os.sep, 1) 
     os.chdir(fits_folder)
-    cmd = f"{path_to_fits} -i {f} -o {outfile}"
+    cmd = f'{path_to_fits} -i "{f}" -o "{outfile}"'
     if verbose:
         now = datetime.now().strftime("%H:%M:%S")
         print (f"doing fits for {file_label} - {now}")
